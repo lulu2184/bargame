@@ -1,0 +1,63 @@
+package frontend;
+
+
+import backend.Controller;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+/**
+ * Created by LU on 15/6/24.
+ */
+public class MainFrame extends JFrame{
+    private ControlPanel controlPanel;
+    private BarStatusPanel statusPanel;
+    private CounterPanel counterPanel;
+
+    public MainFrame(){
+        super();
+
+        ConfigFrame config = new ConfigFrame(this);
+        setVisible(false); //初始默认不可见
+        Dimension size = new Dimension(500, 500);
+        this.setSize(size);   //设置窗口大小
+
+     //   statusPanel = new BarStatusPanel();
+     //   this.add(statusPanel);
+    //    this.add(this.getCountLabel(), null);
+    }
+
+    public void initialize(){
+        this.setVisible(true);
+        //设置布局
+        this.setLayout(new GridBagLayout());
+        controlPanel = new ControlPanel();
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        this.add(controlPanel, constraints);
+
+        statusPanel = new BarStatusPanel();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        this.add(statusPanel);
+
+        counterPanel = new CounterPanel();
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        this.add(counterPanel);
+    }
+
+    public void refresh(){
+        statusPanel.refresh();
+        counterPanel.refresh();
+//        countLabel.setText(Integer.toString(PlayerGroup.getInstance().getCount()));
+    }
+
+}
