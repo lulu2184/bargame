@@ -17,6 +17,8 @@ public class MainFrame extends JFrame{
     private ControlPanel controlPanel;
     private BarStatusPanel statusPanel;
     private CounterPanel counterPanel;
+    private StrategyInputPanel sInputPanel;
+    private HistoryTablePanel historyPanel;
 
     public MainFrame(){
         super();
@@ -25,10 +27,6 @@ public class MainFrame extends JFrame{
         setVisible(false); //初始默认不可见
         Dimension size = new Dimension(500, 500);
         this.setSize(size);   //设置窗口大小
-
-     //   statusPanel = new BarStatusPanel();
-     //   this.add(statusPanel);
-    //    this.add(this.getCountLabel(), null);
     }
 
     public void initialize(){
@@ -44,14 +42,24 @@ public class MainFrame extends JFrame{
         this.add(controlPanel, constraints);
 
         statusPanel = new BarStatusPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        this.add(statusPanel);
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        this.add(statusPanel, constraints);
 
         counterPanel = new CounterPanel();
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        this.add(counterPanel, constraints);
+
+        sInputPanel = new StrategyInputPanel();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        this.add(sInputPanel, constraints);
+
+        historyPanel = new HistoryTablePanel();
         constraints.gridx = 0;
         constraints.gridy = 2;
-        this.add(counterPanel);
+        this.add(historyPanel, constraints);
     }
 
     public void refresh(){

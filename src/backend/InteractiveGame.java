@@ -8,7 +8,7 @@ import java.util.Timer;
 public class InteractiveGame extends Game{
     private Timer timer;
     public InteractiveGame(Controller controller, int n, int m, int s){
-        super(controller);
+        super(controller, n, m);
         playerSet = new Player[n];
         playerSet[0] = new HumanPlayer(m);
         for (int i = 1; i < n; i++){

@@ -11,14 +11,15 @@ import java.awt.event.ActionListener;
 /**
  * Created by LU on 15/7/10.
  */
-public class viewStrategyInputPanel extends JPanel{
+public class StrategyInputPanel extends JPanel{
     private JLabel playerNumLabel;
     private JTextField playerNumField;
     private JButton viewButton;
 
-    public viewStrategyInputPanel(){
+    public StrategyInputPanel(){
         super();
         this.setBorder(new LineBorder(Color.gray, 3, true));
+        this.setLayout(new FlowLayout());
         this.add(this.getPlayerNumLabel(), null);
         this.add(this.getPlayerNumField(), null);
         this.add(this.getViewButton(), null);
@@ -38,6 +39,7 @@ public class viewStrategyInputPanel extends JPanel{
         if (playerNumField == null){
             playerNumField = new JTextField();
             playerNumField.setSize(50, 20);
+            playerNumField.setColumns(5);
         }
         return playerNumField;
     }

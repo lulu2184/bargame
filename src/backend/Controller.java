@@ -3,6 +3,8 @@ package backend;
 import frontend.MainFrame;
 import sun.applet.Main;
 
+import java.util.ArrayDeque;
+
 /**
  * Created by LU on 15/7/9.
  */
@@ -12,6 +14,10 @@ public abstract class Controller {
     protected Game game;
     private MainFrame frame;
 
+    private int n;
+    private int m;
+    private int s;
+
     static public void createController(MainFrame frame, boolean isPlayer, int n, int m, int s){
         controller = ControllerFactory.createController(frame, isPlayer, n, m, s);
     }
@@ -20,11 +26,12 @@ public abstract class Controller {
         return controller;
     }
 
-    public Controller(MainFrame frame){
+    public Controller(MainFrame frame, int n, int m, int s){
         this.frame = frame;
+        this.n = n;
+        this.m = m;
+        this.s = s;
     }
-
-    abstract public void initialize(int n, int m, int s);
 
     public void updateObserver(){
         frame.refresh();
@@ -42,7 +49,27 @@ public abstract class Controller {
         return game.getBarStatus();
     }
 
-    public Integer getRound(){
+    public Integer getRound() {
         return game.getRound();
+    }
+
+    public int getN(){
+        return n;
+    }
+
+    public int getM(){
+        return m;
+    }
+
+    public int getS(){
+        return s;
+    }
+
+    public Integer[] getHistoryStatus(){
+        return game.getHistoryStatus();
+    }
+
+    public Integer[][] getShortMemory(){
+        return game.getShortMemory();
     }
 }

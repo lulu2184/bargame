@@ -8,11 +8,8 @@ import sun.applet.Main;
  */
 public class InteractiveController extends Controller{
 
-    public InteractiveController(MainFrame frame){
-        super(frame);
-    }
-
-    public void initialize(int n, int m, int s){
-       game = new InteractiveGame(this, n, m, s);
+    public InteractiveController(MainFrame frame, int n, int m, int s){
+        super(frame, n, m, s);
+        game = new InteractiveGame(this, n, m, s);
     }
 }

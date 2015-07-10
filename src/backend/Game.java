@@ -2,6 +2,8 @@ package backend;
 
 import frontend.MainFrame;
 
+import java.util.ArrayDeque;
+
 /**
  * Created by LU on 15/7/9.
  */
@@ -10,11 +12,17 @@ abstract public class Game {
     protected int n;
     protected Player playerSet[];
     private Integer barStatus;
+    private ArrayDeque<Integer> historyStatus;
     private Controller controller;
 
-    public Game(Controller controller){
+    public Game(Controller controller, int n, int m){
         this.controller = controller;
         barStatus = 0;
+        this.n = n;
+        historyStatus = new ArrayDeque<Integer>();
+        for (int i = 0; i < m; i++){
+            historyStatus.addLast(0);
+        }
     }
 
     protected void runOneTurn(){
@@ -37,6 +45,8 @@ abstract public class Game {
         }else{
             barStatus = 0;
         }
+        historyStatus.removeFirst();
+        historyStatus.addLast(barStatus);
     }
 
     abstract public void run();
@@ -52,5 +62,17 @@ abstract public class Game {
 
     public Integer getRound(){
         return count;
+    }
+
+    public Integer[] getHistoryStatus(){
+        return historyStatus.toArray(new Integer[0]);
+    }
+
+    public Integer[][] getShortMemory(){
+        Integer[][] ret = new Integer[n][];
+        for (int i = 0; i < n; i++){
+            ret[i] = playerSet[i].getShortMemory();
+        }
+        return ret;
     }
 }
