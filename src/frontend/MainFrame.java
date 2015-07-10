@@ -59,12 +59,15 @@ public class MainFrame extends JFrame{
         historyPanel = new HistoryTablePanel();
         constraints.gridx = 0;
         constraints.gridy = 2;
+        constraints.gridheight = 3;
+        constraints.gridwidth = 4;
         this.add(historyPanel, constraints);
     }
 
     public void refresh(){
         statusPanel.refresh();
         counterPanel.refresh();
+        historyPanel.update();
 //        countLabel.setText(Integer.toString(PlayerGroup.getInstance().getCount()));
     }
 
