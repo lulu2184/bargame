@@ -15,7 +15,7 @@ abstract public class Player {
         }
     }
     abstract public Integer getDecision();
-    abstract public void updateMemory(Integer barStatus);
+    abstract public void update(Integer barStatus);
 
     public Integer[] getShortMemory(){
         return shortMemory.toArray(new Integer[0]);

@@ -25,7 +25,7 @@ public class HumanPlayer extends Player{
         waitingFlag = false;
     }
 
-    public void updateMemory(Integer barStatus){
+    public void update(Integer barStatus){
         shortMemory.removeFirst();
         if (barStatus.equals(currentDecision)) {
             shortMemory.addLast(0);

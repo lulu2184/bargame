@@ -34,12 +34,12 @@ abstract public class Game {
         }
         setBarStatus(numberInBar);
         for (Player player : playerSet){
-            player.updateMemory(numberInBar);
+            player.update(barStatus);
         }
         updateObserver();
     }
 
-    private void setBarStatus(Integer numberInBar){
+    private void setBarStatus(Integer numberInBar){ // 1-->酒吧多人 0-->酒吧少人
         if (numberInBar * 2 > n){
             barStatus = 1;
         }else{

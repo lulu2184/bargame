@@ -37,28 +37,30 @@ public class MainFrame extends JFrame{
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 1;
+        constraints.gridwidth = 2;
         constraints.gridheight = 1;
         this.add(controlPanel, constraints);
 
         statusPanel = new BarStatusPanel();
-        constraints.gridx = 1;
-        constraints.gridy = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
         this.add(statusPanel, constraints);
 
         counterPanel = new CounterPanel();
-        constraints.gridx = 2;
-        constraints.gridy = 0;
+        constraints.gridx = 1;
+        constraints.gridy = 2;
         this.add(counterPanel, constraints);
 
         sInputPanel = new StrategyInputPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 1;
+        constraints.gridx = 2;
+        constraints.gridy = 0;
         this.add(sInputPanel, constraints);
 
         historyPanel = new HistoryTablePanel();
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         constraints.gridheight = 3;
         constraints.gridwidth = 4;
         this.add(historyPanel, constraints);

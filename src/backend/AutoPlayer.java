@@ -12,14 +12,18 @@ public class AutoPlayer extends Player{
         strategy = new StrategySet(m, s);
     }
 
-    public Integer getDecision(){
+    public Integer getDecision(){ // 0：表示不去 1：表示去
         currentDecision = strategy.getDecision(shortMemory);
         return currentDecision;
     }
 
-    public void updateMemory(Integer barStatus){
+    public void update(Integer barStatus){
         strategy.updateStrategy(shortMemory, barStatus);
         shortMemory.removeFirst();
-        shortMemory.addLast(currentDecision);
+        if (barStatus.equals(currentDecision)){ //和大部分人选择一样，则失败
+            shortMemory.addLast(0);
+        }else{
+            shortMemory.addLast(1);
+        }
     }
 }
