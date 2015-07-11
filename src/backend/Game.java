@@ -40,10 +40,10 @@ abstract public class Game {
     }
 
     private void setBarStatus(Integer numberInBar){ // 1-->酒吧多人 0-->酒吧少人
-        if (numberInBar * 2 > n){
+        if (numberInBar > 0){
             barStatus = 1;
         }else{
-            barStatus = 0;
+            barStatus = -1;
         }
         historyStatus.removeFirst();
         historyStatus.addLast(barStatus);

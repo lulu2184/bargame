@@ -25,7 +25,7 @@ public class BarStatusPanel extends JPanel{
 
     private String barStatus(){
         Integer status = Controller.getController().getBarStatus();
-        if (status.equals(0)) return "free";
+        if (status.equals(-1)) return "free";
         else return "busy";
     }
 

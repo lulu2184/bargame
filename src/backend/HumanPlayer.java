@@ -8,15 +8,17 @@ import frontend.DecisionFrame;
 public class HumanPlayer extends Player{
     private boolean waitingFlag;
     private Integer currentDecision;
+    private InteractiveController controller = null;
 
-    public HumanPlayer(int m){
+    public HumanPlayer(InteractiveController controller, int m){
         super(m);
+        this.controller = controller;
     }
 
     public Integer getDecision(){
-        waitingFlag = true;
-        DecisionFrame decisionFrame = new DecisionFrame(this);
-        while (waitingFlag);
+//        waitingFlag = true;
+//        DecisionFrame decisionFrame = new DecisionFrame(this);
+        currentDecision = controller.getDecision();
         return currentDecision;
     }
 

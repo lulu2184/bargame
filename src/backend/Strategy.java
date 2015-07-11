@@ -21,7 +21,7 @@ public class Strategy {
         Random r = new Random();
         for (int i = 0; i < contentSize; i++){
             if (r.nextBoolean()) content[i] = 1;
-            else content[i] = 0;
+            else content[i] = -1;
         }
     }
 
