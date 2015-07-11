@@ -15,24 +15,29 @@ public class StrategyFrame extends JFrame{
     private int score;
     private int cols;
     private int rows;
+    private JScrollPane scr;
+
     private JLabel historyLabel;
     private JLabel actionLabel;
     private JLabel titleLabel;
     private JTextArea content;
 
     public StrategyFrame(int playerNum, int strategyNum){
-        setLayout(new FlowLayout());
-        this.playerNum = playerNum;
-        this.strategyNum = strategyNum;
-        this.historyLabel = getHistoryLabel();
-        this.actionLabel = getActionLabel();
-        this.titleLabel = getTitleLabel();
+//        this.add(new Scrollbar());
+      //  scr=new JScrollPane(getContentPane(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        this.setLayout(new GridBagLayout());
         this.cols = Controller.getController().getM();
         this.rows = (1 << this.cols);
+        this.playerNum = playerNum;
+        this.strategyNum = strategyNum;
+        this.titleLabel = getTitleLabel();
+        this.historyLabel = getHistoryLabel();
+        this.actionLabel = getActionLabel();
 //        this.strategies = this.getStrategies();
         addStrategies();
-        this.add(new Scrollbar());
         update();
+        this.setSize(150, 400);
+      //  this.add(scr);
     }
 
     private JLabel getBlockLabel(String str){
@@ -42,13 +47,14 @@ public class StrategyFrame extends JFrame{
     }
 
     private void addStrategies(){
-        GridBagConstraints constraints = getContraints(0, 3, 1, 1, 3);
+        GridBagConstraints constraints = getContraints(0, 2, 1, 1, 3);
         Strategy strategy = Controller.getController().getSStrategy(playerNum, strategyNum);
         if (strategy == null) return;
         Integer[] content = strategy.getContent();
         for (int i = 0; i < rows; i++){
             constraints.gridx = 0;
             constraints.gridy++;
+            constraints.gridwidth = 1;
             String str = Integer.toBinaryString(i);
             while (str.length() < cols){
                 str = "0" + str;
@@ -57,8 +63,10 @@ public class StrategyFrame extends JFrame{
                 this.add(getBlockLabel(Character.toString(str.charAt(j))), constraints);
                 constraints.gridx++;
             }
-            this.add(getBlockLabel("-->"), constraints);
-            constraints.gridx++;
+            constraints.gridwidth = 4;
+            this.add(getBlockLabel("->"), constraints);
+            constraints.gridx+=4;
+            constraints.gridwidth = 0;
             this.add(getBlockLabel(content[i].toString()), constraints);
         }
     }
@@ -87,7 +95,7 @@ public class StrategyFrame extends JFrame{
         if (actionLabel == null){
             actionLabel = new JLabel("action");
             actionLabel.setBorder(BorderFactory.createEtchedBorder());
-            GridBagConstraints constraints = getContraints(0, cols + 1, 1, 1, 0);
+            GridBagConstraints constraints = getContraints(cols + 4, 1, 4, 1, 0);
             this.add(actionLabel, constraints);
         }
         return actionLabel;
@@ -97,7 +105,7 @@ public class StrategyFrame extends JFrame{
         if (titleLabel == null){
             titleLabel = new JLabel("Strategy " + Integer.toString(strategyNum) + " of player " + Integer.toString(playerNum));
             titleLabel.setBorder(BorderFactory.createEtchedBorder());
-            GridBagConstraints constraints = getContraints(0, 0, 0, 1, 0);
+            GridBagConstraints constraints = getContraints(0, 0, cols + 10, 1, 0);
             this.add(titleLabel, constraints);
         }
         return titleLabel;
