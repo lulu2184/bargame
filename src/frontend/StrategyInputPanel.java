@@ -23,7 +23,8 @@ public class StrategyInputPanel extends JPanel{
     public StrategyInputPanel(MainFrame father){
         super();
         this.father = father;
-        this.setBorder(new LineBorder(Color.gray, 3, true));
+//        this.setBorder(new LineBorder(Color.gray, 3, true));
+        this.setBorder(BorderFactory.createTitledBorder("watch"));
         this.setLayout(new FlowLayout());
         this.add(this.getPlayerNumLabel(), null);
         this.add(this.getPlayerNumField(), null);

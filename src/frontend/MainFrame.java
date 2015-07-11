@@ -21,14 +21,15 @@ public class MainFrame extends JFrame{
     private StrategyInputPanel sInputPanel;
     private HistoryTablePanel historyPanel;
     private StrategyFrame strategyframe;
+    private JPanel emptyPanel;
 
     public MainFrame(){
         super();
 
         ConfigFrame config = new ConfigFrame(this);
         setVisible(false); //初始默认不可见
-        Dimension size = new Dimension(500, 500);
-        this.setSize(size);   //设置窗口大小
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setTitle("bar game simulator");
     }
 
     public void initialize(){
@@ -39,37 +40,61 @@ public class MainFrame extends JFrame{
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 0;
+        constraints.gridwidth = 1;
         constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.insets = new Insets(3,3,3,3);
         this.add(controlPanel, constraints);
 
         statusPanel = new BarStatusPanel();
-        constraints.gridx = 0;
-        constraints.gridy = 3;
+        constraints = new GridBagConstraints();
+        constraints.gridx = 3;
+        constraints.gridy = 0;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.insets = new Insets(3,3,3,3);
         this.add(statusPanel, constraints);
 
         counterPanel = new CounterPanel();
-        constraints.gridx = 1;
-        constraints.gridy = 3;
+        constraints = new GridBagConstraints();
+        constraints.gridx = 2;
+        constraints.gridy = 0;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.insets = new Insets(3,3,3,3);
         this.add(counterPanel, constraints);
 
         sInputPanel = new StrategyInputPanel(this);
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        constraints.gridwidth = 0;
+        constraints = new GridBagConstraints();
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
         constraints.gridheight = 1;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.insets = new Insets(3,3,3,3);
         this.add(sInputPanel, constraints);
 
         historyPanel = new HistoryTablePanel();
+        constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.gridheight = 3;
-        constraints.gridwidth = 4;
+        constraints.gridwidth = 0;
+        constraints.insets = new Insets(3,3,3,3);
         this.add(historyPanel, constraints);
+
+        emptyPanel = new JPanel();
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 7;
+        constraints.gridwidth = 0;
+        constraints.gridheight = 1;
+        constraints.weighty = 1;
+        constraints.weightx = 1;
+        constraints.insets = new Insets(3,3,3,3);
+        this.add(emptyPanel, constraints);
     }
 
     public void setStrategyFrame(StrategyFrame frame){

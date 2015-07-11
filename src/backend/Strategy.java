@@ -39,7 +39,7 @@ public class Strategy {
         Integer index = 0;
         for (Iterator iter = shortMemory.iterator(); iter.hasNext();){
             Integer digit = (Integer)iter.next();
-            if (digit.equals(-1)) digit = 0;
+            if (digit.equals(STAY)) digit = 0;
             index = index * 2 + digit;
         }
         return content[index];

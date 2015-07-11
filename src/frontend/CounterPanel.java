@@ -15,7 +15,8 @@ public class CounterPanel extends JPanel{
     public CounterPanel() {
         super();
         this.setSize(100, 100);
-        this.setBorder(new LineBorder(Color.gray, 3, true));
+//        this.setBorder(new LineBorder(Color.gray, 3, true));
+        this.setBorder(BorderFactory.createTitledBorder("round"));
         this.setLayout(new FlowLayout());
         this.add(new JLabel("Round : "));
         this.add(this.getStatusLabel(), null);

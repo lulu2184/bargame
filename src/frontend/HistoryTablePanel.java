@@ -37,6 +37,7 @@ public class HistoryTablePanel extends JPanel{
             }
         }
         update();
+        this.setBorder(BorderFactory.createTitledBorder("history"));
     }
 
     public void update(){

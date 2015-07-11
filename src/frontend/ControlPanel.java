@@ -20,8 +20,9 @@ public class ControlPanel extends JPanel{
     public ControlPanel(){
         super();
         //this.setSize(100, 100);
-        this.setBorder(new LineBorder(Color.gray, 3, true));
+//        this.setBorder(new LineBorder(Color.gray, 3, true));
         //this.setLayout(new FlowLayout());
+        this.setBorder(BorderFactory.createTitledBorder("control"));
         this.add(new JLabel("control"));
         this.add(this.getRunButton(), null);
         this.add(this.getStopButton(), null);

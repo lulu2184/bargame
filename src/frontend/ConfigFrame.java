@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Controller;
+import backend.InteractiveController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -137,20 +138,54 @@ public class ConfigFrame extends JFrame {
         return Integer.parseInt(tField.getText());
     }
 
+    private boolean checkInput(){
+        if (!nField.getText().matches("[0-9]+")){
+            JOptionPane.showMessageDialog(this, "N should be number.");
+            return false;
+        }
+        if (!mField.getText().matches("[0-9]+")){
+            JOptionPane.showMessageDialog(this, "M should be number.");
+            return false;
+        }
+        if (!sField.getText().matches("[0-9]+")){
+            JOptionPane.showMessageDialog(this, "S should be number.");
+            return false;
+        }
+        Integer n = Integer.parseInt(nField.getText());
+        if (n < 0 || n > 20){
+            JOptionPane.showMessageDialog(this, "N should be positive integer less or equal than 20.");
+            return false;
+        }
+        Integer m = Integer.parseInt(mField.getText());
+        if (m < 0 || m > 10){
+            JOptionPane.showMessageDialog(this, "M should be positive integer less or equal than 20.");
+            return false;
+        }
+        Integer s = Integer.parseInt(sField.getText());
+        if (s < 0 || s > 100){
+            JOptionPane.showMessageDialog(this, "M should be positive integer less or equal than 20.");
+            return false;
+        }
+        return true;
+    }
 
     private class playButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Controller.createController(father, true, getNumber(nField), getNumber(mField), getNumber(sField));
-            father.initialize();
-            dispose();
+            if (checkInput()){
+                Controller.createController(father, true, getNumber(nField), getNumber(mField), getNumber(sField));
+                father.initialize();
+                dispose();
+            }
         }
     }
 
     private class viewButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Controller.createController(father, false, getNumber(nField), getNumber(mField), getNumber(sField));
-            father.initialize();
-            dispose();
+            if (checkInput()) {
+                Controller.createController(father, false, getNumber(nField), getNumber(mField), getNumber(sField));
+                father.initialize();
+                dispose();
+            }
         }
     }
 }

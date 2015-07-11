@@ -3,9 +3,11 @@ package frontend;
 
 
 import backend.Controller;
+import backend.Game;
 
 import javax.swing.border.LineBorder;
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 /**
@@ -17,7 +19,8 @@ public class BarStatusPanel extends JPanel{
     public BarStatusPanel() {
         super();
         this.setSize(100, 100);
-        this.setBorder(new LineBorder(Color.gray, 3, true));
+//        this.setBorder(new LineBorder(Color.gray, 3, true));
+        this.setBorder(BorderFactory.createTitledBorder("bar status"));
         this.setLayout(new FlowLayout());
         this.add(new JLabel("bar status: "));
         this.add(this.getStatusLabel(), null);
@@ -25,7 +28,7 @@ public class BarStatusPanel extends JPanel{
 
     private String barStatus(){
         Integer status = Controller.getController().getBarStatus();
-        if (status.equals(-1)) return "free";
+        if (status.equals(Game.FREE)) return "free";
         else return "busy";
     }
 
