@@ -75,4 +75,9 @@ abstract public class Game {
         }
         return ret;
     }
+
+    public Strategy getStrategy(int playerNum, int strategyNum){
+        if (playerNum >= n) return null;
+        return playerSet[playerNum].getStrategy(strategyNum);
+    }
 }

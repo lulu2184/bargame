@@ -33,4 +33,8 @@ public class HumanPlayer extends Player{
             shortMemory.addLast(1);
         }
     }
+
+    public Strategy getStrategy(int strategyNum){
+        return null;
+    }
 }

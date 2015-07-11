@@ -37,4 +37,9 @@ public class StrategySet {
             strategy.update(shortMemory, barStatus);
         }
     }
+
+    public Strategy getStrategy(int strategyNum){
+        if (strategyNum >= S) return null;
+        return strategies.get(strategyNum);
+    }
 }

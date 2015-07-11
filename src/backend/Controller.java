@@ -72,4 +72,8 @@ public abstract class Controller {
     public Integer[][] getShortMemory(){
         return game.getShortMemory();
     }
+
+    public Strategy getSStrategy(int playerNum, int strategyNum){
+        return game.getStrategy(playerNum, strategyNum);
+    }
 }

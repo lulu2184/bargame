@@ -20,4 +20,6 @@ abstract public class Player {
     public Integer[] getShortMemory(){
         return shortMemory.toArray(new Integer[0]);
     }
+
+    abstract public Strategy getStrategy(int strategyNum);
 }
