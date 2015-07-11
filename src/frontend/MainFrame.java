@@ -73,7 +73,9 @@ public class MainFrame extends JFrame{
     }
 
     public void setStrategyFrame(StrategyFrame frame){
-        strategyframe.dispose();
+        if (strategyframe != null){
+            strategyframe.dispose();
+        }
         strategyframe = frame;
         strategyframe.setVisible(true);
     }

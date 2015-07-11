@@ -33,6 +33,7 @@ public class HumanPlayer extends Player{
             shortMemory.addLast(0);
         }else{
             shortMemory.addLast(1);
+            capital++;
         }
     }
 

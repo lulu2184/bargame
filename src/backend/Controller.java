@@ -76,4 +76,14 @@ public abstract class Controller {
     public Strategy getSStrategy(int playerNum, int strategyNum){
         return game.getStrategy(playerNum, strategyNum);
     }
+
+    abstract public String getControllerType();
+
+    public Integer[] getPlayerCapital(){
+        return game.getPlayerCapital();
+    }
+
+    public Integer getBusyness(){
+        return game.getBusyness();
+    }
 }

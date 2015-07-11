@@ -12,6 +12,7 @@ abstract public class Game {
     protected int n;
     protected Player playerSet[];
     private Integer barStatus;
+    private Integer busyness;
     private ArrayDeque<Integer> historyStatus;
     private Controller controller;
 
@@ -33,6 +34,7 @@ abstract public class Game {
             numberInBar = numberInBar + choose;
         }
         setBarStatus(numberInBar);
+        busyness = numberInBar;
         for (Player player : playerSet){
             player.update(barStatus);
         }
@@ -79,5 +81,17 @@ abstract public class Game {
     public Strategy getStrategy(int playerNum, int strategyNum){
         if (playerNum >= n) return null;
         return playerSet[playerNum].getStrategy(strategyNum);
+    }
+
+    public Integer[] getPlayerCapital(){
+        Integer[] ret = new Integer[n];
+        for (int i = 0; i < n; i++){
+            ret[i] = playerSet[i].getCapital();
+        }
+        return ret;
+    }
+
+    public Integer getBusyness(){
+        return busyness;
     }
 }

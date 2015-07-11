@@ -24,6 +24,7 @@ public class AutoPlayer extends Player{
             shortMemory.addLast(0);
         }else{
             shortMemory.addLast(1);
+            capital++;
         }
     }
 

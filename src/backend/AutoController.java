@@ -13,4 +13,8 @@ public class AutoController extends Controller{
         game = new AutoGame(this, n, m, s);
     }
 
+    public String getControllerType(){
+        return "Auto";
+    }
+
 }

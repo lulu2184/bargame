@@ -35,5 +35,9 @@ public class InteractiveController extends Controller{
     public void setDecision(Integer decision){
         this.decision = decision;
     }
+
+    public String getControllerType(){
+        return "Interactive";
+    }
 }
 
