@@ -16,13 +16,16 @@ abstract public class Game {
     private ArrayDeque<Integer> historyStatus;
     private Controller controller;
 
+    public static final Integer BUSY = 1;
+    public static final Integer FREE = -1;
+
     public Game(Controller controller, int n, int m){
         this.controller = controller;
-        barStatus = 0;
+        barStatus = FREE;
         this.n = n;
         historyStatus = new ArrayDeque<Integer>();
         for (int i = 0; i < m; i++){
-            historyStatus.addLast(0);
+            historyStatus.addLast(FREE);
         }
     }
 
@@ -43,9 +46,9 @@ abstract public class Game {
 
     private void setBarStatus(Integer numberInBar){ // 1-->酒吧多人 0-->酒吧少人
         if (numberInBar > 0){
-            barStatus = 1;
+            barStatus = BUSY;
         }else{
-            barStatus = -1;
+            barStatus = FREE;
         }
         historyStatus.removeFirst();
         historyStatus.addLast(barStatus);

@@ -13,6 +13,9 @@ public class Strategy {
     private Integer M;
     private Integer contentSize;
 
+    public static final Integer STAY = -1;
+    public static final Integer GO = 1;
+
     public Strategy(int m){
         M = m;
         score = 0;
@@ -20,14 +23,14 @@ public class Strategy {
         content = new Integer[contentSize];
         Random r = new Random();
         for (int i = 0; i < contentSize; i++){
-            if (r.nextBoolean()) content[i] = 1;
-            else content[i] = -1;
+            if (r.nextBoolean()) content[i] = GO;
+            else content[i] = STAY;
         }
     }
 
     public void update(ArrayDeque<Integer> shortMemory, Integer barStatus){
         Integer choose = getDecision(shortMemory);
-        if (choose.equals(barStatus)){
+        if ((barStatus.equals(Game.FREE) && choose.equals(GO)) || (barStatus.equals(Game.BUSY) && choose.equals(STAY))){
             score++;
         }
     }

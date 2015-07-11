@@ -25,6 +25,7 @@ public class InteractiveController extends Controller{
         }else {
             game.run();
             decision = null;
+            dframe = null;
         }
     }
 

@@ -6,7 +6,7 @@ import java.util.Timer;
  * Created by LU on 15/7/9.
  */
 public class InteractiveGame extends Game{
-    private Timer timer;
+//    private Timer timer;
     public InteractiveGame(InteractiveController controller, int n, int m, int s){
         super(controller, n, m);
         playerSet = new Player[n];
@@ -31,7 +31,7 @@ public class InteractiveGame extends Game{
     }
 
     public void stop(){
-        timer.cancel();
-        timer = null;
+//        timer.cancel();
+//        timer = null;
     }
 }

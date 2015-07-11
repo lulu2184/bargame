@@ -42,10 +42,10 @@ public class HistoryTablePanel extends JPanel{
     public void update(){
         Integer[] status = Controller.getController().getHistoryStatus();
         Integer[][] memory = Controller.getController().getShortMemory();
-        Integer round = Controller.getController().getRound();
+        Integer round = Controller.getController().getRound() - m + 1;
         for (int i = 0; i < m; i++){
             label[i].setText("Round " + Integer.toString(round));
-            round--;
+            round++;
             for (int j = 0; j < n; j++){
                 gridElement[i][j].update(status[i], memory[j][i]);
             }

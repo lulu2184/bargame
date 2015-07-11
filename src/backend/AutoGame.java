@@ -17,12 +17,16 @@ public class AutoGame extends Game{
     }
 
     public void run(){
-        timer = new Timer();
-        timer.schedule(new GameRunTask(this), 1000, 1000);
+        if (timer == null) {
+            timer = new Timer();
+            timer.schedule(new GameRunTask(this), 1000, 1000);
+        }
     }
 
     public void stop(){
-        timer.cancel();
-        timer = null;
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 }

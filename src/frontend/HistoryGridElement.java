@@ -1,5 +1,9 @@
 package frontend;
 
+import backend.Game;
+import backend.Player;
+import backend.Strategy;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,7 +24,7 @@ public class HistoryGridElement extends JPanel{
     }
 
     private Color getBlockGround(Integer type){
-        if (type.equals(0)){
+        if (type.equals(Player.LOSE)){
             return Color.white;
         }else{
             return Color.black;
@@ -28,7 +32,7 @@ public class HistoryGridElement extends JPanel{
     }
 
     private Color getBackground(Integer type){
-        if (type.equals(0)){
+        if (type.equals(Game.FREE)){
             return Color.green;
         }else{
             return Color.ORANGE;

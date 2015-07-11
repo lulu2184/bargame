@@ -9,10 +9,14 @@ abstract public class Player {
     protected ArrayDeque<Integer> shortMemory;
     protected Integer capital;
 
+    public static final Integer WIN = 1;
+    public static final Integer LOSE = -1;
+
+
     public Player(int m){
         shortMemory = new ArrayDeque<Integer>();
         for (int i = 0; i < m; i++){
-            shortMemory.addLast(0);
+            shortMemory.addLast(LOSE);
         }
         capital = 0;
     }

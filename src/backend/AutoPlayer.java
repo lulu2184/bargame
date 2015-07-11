@@ -20,10 +20,10 @@ public class AutoPlayer extends Player{
     public void update(Integer barStatus){
         strategy.updateStrategy(shortMemory, barStatus);
         shortMemory.removeFirst();
-        if (barStatus.equals(currentDecision)){ //和大部分人选择一样，则失败
-            shortMemory.addLast(0);
+        if ((barStatus.equals(Game.BUSY) && currentDecision.equals(Strategy.GO)) || (barStatus.equals(Game.FREE) && barStatus.equals(Strategy.STAY))){ //和大部分人选择一样，则失败
+            shortMemory.addLast(LOSE);
         }else{
-            shortMemory.addLast(1);
+            shortMemory.addLast(WIN);
             capital++;
         }
     }

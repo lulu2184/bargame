@@ -51,16 +51,16 @@ public class ControlPanel extends JPanel{
     private class RunButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Controller.getController().run();
-            runButton.setEnabled(false);
-            stopButton.setEnabled(true);
+//            runButton.setEnabled(false);
+//            stopButton.setEnabled(true);
         }
     }
 
     private class StopButton implements ActionListener {
         public void actionPerformed(ActionEvent e){
             Controller.getController().stop();
-            runButton.setEnabled(true);
-            stopButton.setEnabled(false);
+//            runButton.setEnabled(true);
+//            stopButton.setEnabled(false);
         }
     }
 }
