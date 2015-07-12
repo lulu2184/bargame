@@ -44,7 +44,7 @@ abstract public class Game {
         updateObserver();
     }
 
-    private void setBarStatus(Integer numberInBar){ // 1-->酒吧多人 0-->酒吧少人
+    private void setBarStatus(Integer numberInBar){
         if (numberInBar > 0){
             barStatus = BUSY;
         }else{
