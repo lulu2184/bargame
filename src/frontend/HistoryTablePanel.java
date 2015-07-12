@@ -24,13 +24,11 @@ public class HistoryTablePanel extends JPanel{
         for (int i = 0; i < n; i ++){
             this.add(new JLabel(Integer.toString(i)));
         }
-//        int round = Controller.getController().getRound();
         gridElement = new HistoryGridElement[m][n];
         label = new JLabel[m];
         for (int i = 0; i < m; i++){
             label[i] = new JLabel();
             this.add(label[i]);
-//            round--;
             for (int j = 0; j < n; j++){
                 gridElement[i][j] = new HistoryGridElement();
                 this.add(gridElement[i][j], null);

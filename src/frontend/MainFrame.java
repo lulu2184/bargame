@@ -17,6 +17,7 @@ public class MainFrame extends JFrame{
     private JPanel emptyPanel;
     private BarStatusChartPanel barChartPanel;
     private CapitalChartPanel capitalChartPanel;
+    private CapitalPanel capitalPanel;
 
     public MainFrame(){
         super();
@@ -83,7 +84,7 @@ public class MainFrame extends JFrame{
         barChartPanel = new BarStatusChartPanel("headcount at bar");
         constraints = new GridBagConstraints();
         constraints.gridx = 3;
-        constraints.gridy = 7;
+        constraints.gridy = 9;
         constraints.gridwidth = 0;
         constraints.gridheight = 3;
         constraints.weighty = 1;
@@ -92,15 +93,24 @@ public class MainFrame extends JFrame{
         capitalChartPanel = new CapitalChartPanel("agent capital");
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
-        constraints.gridy = 7;
+        constraints.gridy = 9;
         constraints.gridwidth = 4;
         constraints.gridheight = 3;
         this.add(capitalChartPanel, constraints);
 
+        capitalPanel = new CapitalPanel();
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 7;
+        constraints.gridwidth = 0;
+        constraints.gridheight = 2;
+        constraints.weighty = 1;
+        this.add(capitalPanel, constraints);
+
         emptyPanel = new JPanel();
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
-        constraints.gridy = 8;
+        constraints.gridy = 12;
         constraints.gridwidth = 0;
         constraints.gridheight = 1;
         constraints.weighty = 1;
@@ -124,6 +134,7 @@ public class MainFrame extends JFrame{
         historyPanel.update();
         capitalChartPanel.refresh();
         barChartPanel.refresh();
+        capitalPanel.update();
     }
 
 }

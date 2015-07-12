@@ -33,7 +33,7 @@ public class HistoryGridElement extends JPanel{
 
     private Color getBackground(Integer type){
         if (type.equals(Game.FREE)){
-            return new Color(14, 65, 156);
+            return new Color(0,139,69);
         }else{
             return new Color(204, 26, 26);
         }
