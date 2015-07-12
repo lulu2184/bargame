@@ -86,4 +86,8 @@ public abstract class Controller {
     public Integer getBusyness(){
         return game.getBusyness();
     }
+
+    public Integer[][] getHistoryChoose(){
+        return game.getHistoryChoose();
+    }
 }

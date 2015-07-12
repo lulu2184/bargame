@@ -20,7 +20,9 @@ public class AutoPlayer extends Player{
     public void update(Integer barStatus){
         strategy.updateStrategy(shortMemory, barStatus);
         shortMemory.removeFirst();
-        if ((barStatus.equals(Game.BUSY) && currentDecision.equals(Strategy.GO)) || (barStatus.equals(Game.FREE) && barStatus.equals(Strategy.STAY))){ //和大部分人选择一样，则失败
+        historyChoose.removeFirst();
+        historyChoose.addLast(currentDecision);
+        if ((barStatus.equals(Game.BUSY) && currentDecision.equals(Strategy.GO)) || (barStatus.equals(Game.FREE) && currentDecision.equals(Strategy.STAY))){ //和大部分人选择一样，则失败
             shortMemory.addLast(LOSE);
         }else{
             shortMemory.addLast(WIN);

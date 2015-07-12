@@ -8,11 +8,9 @@ import java.util.ArrayList;
  */
 public class StrategySet {
     private ArrayList<Strategy> strategies;
-    private Integer M;
     private Integer S;
 
     public StrategySet(int m, int s){
-        M = m;
         S = s;
         strategies = new ArrayList<Strategy>();
         for (int i = 0; i < s; i ++){

@@ -18,20 +18,8 @@ public class InteractiveGame extends Game{
 
     public void run(){
             runOneTurn();
-//            try {
-//                Thread.sleep(5);
-//            }catch (InterruptedException e){
-//                e.printStackTrace();
-//                System.err.println(e);
-//                break;
-//            }
-//        }
-//        timer = new Timer();
-//        timer.schedule(new GameRunTask(this), 3000, 3000);
     }
 
     public void stop(){
-//        timer.cancel();
-//        timer = null;
     }
 }

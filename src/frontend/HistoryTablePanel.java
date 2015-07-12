@@ -21,7 +21,7 @@ public class HistoryTablePanel extends JPanel{
         m = Controller.getController().getM();
         setLayout(new GridLayout(m + 1, n + 1));
         this.add(new JLabel());
-        for (int i = 1; i < n + 1; i ++){
+        for (int i = 0; i < n; i ++){
             this.add(new JLabel(Integer.toString(i)));
         }
 //        int round = Controller.getController().getRound();
@@ -42,13 +42,13 @@ public class HistoryTablePanel extends JPanel{
 
     public void update(){
         Integer[] status = Controller.getController().getHistoryStatus();
-        Integer[][] memory = Controller.getController().getShortMemory();
+        Integer[][] choose = Controller.getController().getHistoryChoose();
         Integer round = Controller.getController().getRound() - m + 1;
         for (int i = 0; i < m; i++){
             label[i].setText("Round " + Integer.toString(round));
             round++;
             for (int j = 0; j < n; j++){
-                gridElement[i][j].update(status[i], memory[j][i]);
+                gridElement[i][j].update(status[i], choose[j][i]);
             }
         }
     }

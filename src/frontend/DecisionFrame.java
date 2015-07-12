@@ -3,6 +3,7 @@ package frontend;
 import backend.Controller;
 import backend.HumanPlayer;
 import backend.InteractiveController;
+import backend.Strategy;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,7 +52,7 @@ public class DecisionFrame extends JFrame{
     private class stayButton implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //decisionCallback(-1);
-            controller.setDecision(-1);
+            controller.setDecision(Strategy.STAY);
             controller.run();
             dispose();
         }
@@ -60,7 +61,7 @@ public class DecisionFrame extends JFrame{
     private class goButton implements  ActionListener{
         public void actionPerformed(ActionEvent e){
 //            player.decisionCallback(1);
-            controller.setDecision(1);
+            controller.setDecision(Strategy.GO);
             controller.run();
             dispose();
         }

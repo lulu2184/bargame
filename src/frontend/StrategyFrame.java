@@ -23,8 +23,6 @@ public class StrategyFrame extends JFrame {
     private JTextArea content;
 
     public StrategyFrame(int playerNum, int strategyNum) {
-//        this.add(new Scrollbar());
-        //  scr=new JScrollPane(getContentPane(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         this.setLayout(new GridBagLayout());
         this.cols = Controller.getController().getM();
         this.rows = (1 << this.cols);
@@ -33,10 +31,8 @@ public class StrategyFrame extends JFrame {
         this.titleLabel = getTitleLabel();
         this.historyLabel = getHistoryLabel();
         this.actionLabel = getActionLabel();
-//        this.strategies = this.getStrategies();
         addStrategies();
         this.setSize(150, 400);
-        //  this.add(scr);
     }
 
     private JLabel getBlockLabel(String str) {

@@ -1,15 +1,8 @@
 package frontend;
 
 
-import backend.Controller;
-import backend.Strategy;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 /**
  * Created by LU on 15/6/24.
@@ -22,6 +15,8 @@ public class MainFrame extends JFrame{
     private HistoryTablePanel historyPanel;
     private StrategyFrame strategyframe;
     private JPanel emptyPanel;
+    private BarStatusChartPanel barChartPanel;
+    private CapitalChartPanel capitalChartPanel;
 
     public MainFrame(){
         super();
@@ -68,11 +63,11 @@ public class MainFrame extends JFrame{
 
         sInputPanel = new StrategyInputPanel(this);
         constraints = new GridBagConstraints();
-        constraints.gridx = 1;
+        constraints.gridx = 4;
         constraints.gridy = 0;
-        constraints.gridwidth = 1;
+        constraints.gridwidth = 5;
         constraints.gridheight = 1;
-        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(3,3,3,3);
         this.add(sInputPanel, constraints);
 
@@ -85,16 +80,34 @@ public class MainFrame extends JFrame{
         constraints.insets = new Insets(3,3,3,3);
         this.add(historyPanel, constraints);
 
-        emptyPanel = new JPanel();
+        barChartPanel = new BarStatusChartPanel("headcount at bar");
+        constraints = new GridBagConstraints();
+        constraints.gridx = 3;
+        constraints.gridy = 7;
+        constraints.gridwidth = 0;
+        constraints.gridheight = 3;
+        constraints.weighty = 1;
+        this.add(barChartPanel, constraints);
+
+        capitalChartPanel = new CapitalChartPanel("agent capital");
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 7;
+        constraints.gridwidth = 4;
+        constraints.gridheight = 3;
+        this.add(capitalChartPanel, constraints);
+
+        emptyPanel = new JPanel();
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 8;
         constraints.gridwidth = 0;
         constraints.gridheight = 1;
         constraints.weighty = 1;
         constraints.weightx = 1;
         constraints.insets = new Insets(3,3,3,3);
         this.add(emptyPanel, constraints);
+
     }
 
     public void setStrategyFrame(StrategyFrame frame){
@@ -109,7 +122,8 @@ public class MainFrame extends JFrame{
         statusPanel.refresh();
         counterPanel.refresh();
         historyPanel.update();
-//        countLabel.setText(Integer.toString(PlayerGroup.getInstance().getCount()));
+        capitalChartPanel.refresh();
+        barChartPanel.refresh();
     }
 
 }

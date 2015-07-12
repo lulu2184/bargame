@@ -10,14 +10,12 @@ import java.util.Random;
 public class Strategy {
     private Integer content[];
     private Integer score;
-    private Integer M;
     private Integer contentSize;
 
     public static final Integer STAY = -1;
     public static final Integer GO = 1;
 
     public Strategy(int m){
-        M = m;
         score = 0;
         contentSize = (1 << m);
         content = new Integer[contentSize];
@@ -50,8 +48,12 @@ public class Strategy {
     }
 
     public Strategy fightTo(Strategy opponent){
-        if (score > opponent.getScore()){
+        Integer opS = opponent.getScore();
+        if (score > opS){
             return this;
+        }else if (score.equals(opS)) {
+            if (new Random().nextBoolean()) return opponent;
+            else return this;
         }else{
             return opponent;
         }

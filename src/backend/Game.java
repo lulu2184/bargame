@@ -81,6 +81,14 @@ abstract public class Game {
         return ret;
     }
 
+    public Integer[][] getHistoryChoose(){
+        Integer[][] ret = new Integer[n][];
+        for (int i = 0; i < n; i++){
+            ret[i] = playerSet[i].getHistoryChoose();
+        }
+        return ret;
+    }
+
     public Strategy getStrategy(int playerNum, int strategyNum){
         if (playerNum >= n) return null;
         return playerSet[playerNum].getStrategy(strategyNum);

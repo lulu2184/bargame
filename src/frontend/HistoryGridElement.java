@@ -24,7 +24,7 @@ public class HistoryGridElement extends JPanel{
     }
 
     private Color getBlockGround(Integer type){
-        if (type.equals(Player.LOSE)){
+        if ((type.equals(Strategy.STAY))){
             return Color.white;
         }else{
             return Color.black;
