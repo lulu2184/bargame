@@ -30,18 +30,20 @@ abstract public class Game {
     }
 
     protected void runOneTurn(){
-        Integer numberInBar = 0;
-        count++;
-        for (Player player : playerSet){
-            Integer choose = player.getDecision();
-            numberInBar = numberInBar + choose;
-        }
-        setBarStatus(numberInBar);
-        busyness = numberInBar;
-        for (Player player : playerSet){
-            player.update(barStatus);
-        }
-        updateObserver();
+        if (count < 99) {
+            Integer numberInBar = 0;
+            count++;
+            for (Player player : playerSet) {
+                Integer choose = player.getDecision();
+                numberInBar = numberInBar + choose;
+            }
+            setBarStatus(numberInBar);
+            busyness = numberInBar;
+            for (Player player : playerSet) {
+                player.update(barStatus);
+            }
+            updateObserver();
+        }else stop();
     }
 
     private void setBarStatus(Integer numberInBar){

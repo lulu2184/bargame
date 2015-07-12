@@ -27,8 +27,8 @@ public class StrategyFrame extends JFrame {
         panel.setLayout(new GridBagLayout());
         this.cols = Controller.getController().getM();
         this.rows = (1 << this.cols);
-        int width = 60 + 25 * cols;
-        int height = Math.min(400, 25 * (rows + 3));
+        int width = 130 + 20 * cols;
+        int height = Math.min(400, 30 * (rows + 3));
         panel.setSize(width, height);
         this.playerNum = playerNum;
         this.strategyNum = strategyNum;

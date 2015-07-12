@@ -17,7 +17,7 @@ public class InteractiveGame extends Game{
     }
 
     public void run(){
-            runOneTurn();
+          runOneTurn();
     }
 
     public void stop(){
